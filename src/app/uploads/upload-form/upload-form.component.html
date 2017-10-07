@@ -1,0 +1,12 @@
+  <h2>Select a file.</h2>
+
+<label class="mat-raised-button upload-btn" for="upload">
+            <h4>Supported file types: .mp3 / .wav / .ogg</h4>
+            <h4>&nbsp;&nbsp;Browse....&nbsp;</h4>
+</label>
+
+  <input name="myfile" type="file" id="upload" accept="audio/*" (change)="fileChangeEvent($event)" required>
+<mat-divider></mat-divider>
+<br>
+
+<button mat-raised-button color="primary" (click)="upload()">Upload</button>

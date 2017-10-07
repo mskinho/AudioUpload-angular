@@ -1,0 +1,10 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+.upload-url{
+  width:100%;
+}
+.upload-card{
+  background-color:#ddd;
+}
