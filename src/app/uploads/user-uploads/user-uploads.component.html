@@ -1,10 +1,10 @@
    <mat-toolbar>  {{selectedFilter}} Uploads
   <mat-toolbar-row>
-
+<span class="spacer"></span>
 <button mat-button (click)="fetchUploads(selectedFilter)">
-    <mat-icon>update</mat-icon> Refresh</button>
+    <mat-icon class="spacer">update</mat-icon> Refresh</button>
 
-    <span class="spacer"></span>
+
           <mat-select [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
             <mat-option *ngFor="let filter of filterOptions" [value]="filter">
               {{ filter }}
