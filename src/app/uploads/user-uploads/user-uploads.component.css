@@ -2,6 +2,10 @@
   flex: 1 1 auto;
 }
 
+.filter-select{
+  width:30%;
+}
+
 .upload-url{
   width:100%;
 }
