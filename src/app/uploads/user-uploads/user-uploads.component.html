@@ -6,7 +6,7 @@
 
     <span class="spacer"></span>
           <mat-select [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
-            <mat-option *ngFor="let filter of filterOptions" value = "filter">
+            <mat-option *ngFor="let filter of filterOptions" [value]="filter">
               {{ filter }}
             </mat-option>
           </mat-select>
