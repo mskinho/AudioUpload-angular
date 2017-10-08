@@ -1,7 +1,5 @@
-   <mat-toolbar color="primary">  {{selectedFilter}} Uploads
+  <mat-toolbar>  {{selectedFilter}} Uploads
   <mat-toolbar-row>
-<button mat-button (click)="fetchUploads(selectedFilter)">
-    <mat-icon>update</mat-icon> Refresh</button>
      <span class="spacer"></span>
           <mat-select class="filter-select" [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
             <mat-option *ngFor="let filter of filterOptions" [value]="filter">
@@ -18,7 +16,7 @@
   <mat-card class="upload-card">
     <mat-card-header>
       <div mat-card-avatar>
-        <a mat-icon-button href="{{upload.filename}}"  target="_blank">
+        <a mat-icon-button href="{{getUploadUrl(upload.filename)}}"  target="_blank">
           <mat-icon>play_arrow</mat-icon>
         </a>
          </div>
@@ -35,8 +33,7 @@
   </mat-card-content>
   <mat-card-actions>
        <div class="upload-url">
-         <a href={{upload.path}}>{{upload.path}}</a>
-         <a href={{getUploadUrl(upload.filename)}}>{{getUploadUrl(upload.filename)}}</a>
+         <input type ="text" readonly value={{getUploadUrl(upload.filename)}}>
 </div>
 </mat-card-actions>
   </mat-card>

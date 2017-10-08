@@ -19,6 +19,19 @@ var server = app.listen(process.env.PORT, function () {
     console.log("server started")
 });
 
+app.get('/', function (req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+app.get('/upload', function (req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+app.get('/files', function (req, res) {
+    res.sendFile(distDir + 'index.html');
+});
+
+
+
+
 //mongodb set up
 var mongodb = require("mongodb");
 var ObjectID = mongodb.ObjectID;
@@ -35,14 +48,9 @@ mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
 });
 
 
-app.get('/', function (req, res) {
-    res.sendFile(distDir + 'index.html');
-});
-
 
 
 // file uploads with multer
-/********************************************************************/
 //-------------------------------------------------------------------/
 
 var path = require('path');
@@ -89,10 +97,7 @@ app.post('/api/process_upload', upload.single('myfile'), function (req, res) {
 
     }
 });
-
-/********************************************************************/
 //--------------------------------------------------------------------/
-
 
 app.get('/api/recent', function (req, res) {
     //recent uploads
@@ -119,7 +124,6 @@ app.get('/api/top', function (req, res) {
 
 app.get('/api/files/:id', function (req, res) {
     //files by id
-
     db.collection(FILE_COLLECTION).findOne({_id: new ObjectID(req.params.id)}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");
@@ -131,7 +135,6 @@ app.get('/api/files/:id', function (req, res) {
 
 app.get("/api/score/:id", function (req, res) {
     //score by id
-
     db.collection(FILE_COLLECTION).findOne({_id: new ObjectID(req.params.id)}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");
@@ -143,9 +146,7 @@ app.get("/api/score/:id", function (req, res) {
 
 
 app.post("/api/like/", function (req, res) {
-
     var songID = req.body.SongID;
-    //score++
     db.collection(FILE_COLLECTION).update({_id: new ObjectID(songID)}, {$inc: {score: 1}}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");
@@ -160,9 +161,7 @@ app.post("/api/like/", function (req, res) {
 
 
 app.post("/api/dislike/", function (req, res) {
-
     var songID = req.body.SongID;
-    //score--
     db.collection(FILE_COLLECTION).update({_id: new ObjectID(songID)}, {$inc: {score: -1}}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");

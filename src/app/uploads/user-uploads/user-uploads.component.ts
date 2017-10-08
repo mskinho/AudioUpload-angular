@@ -9,8 +9,8 @@ import {UploadService} from '../upload.service';
 })
 export class UserUploadsComponent implements OnInit {
 
- uploads:any = [];
- filterOptions = ['Recent','Top Rated'];
+ uploads: any = [];
+ filterOptions = ['Recent', 'Top Rated'];
  selectedFilter = this.filterOptions[0];
 
  constructor(private UploadService: UploadService) { }
@@ -22,12 +22,12 @@ export class UserUploadsComponent implements OnInit {
 
 
   fetchUploads(selectedFilter: string){
-      switch(selectedFilter){
-        case this.filterOptions[0]:{
+      switch (selectedFilter){
+        case this.filterOptions[0]: {
           this.fetchRecentUploads();
           break;
         }
-        case this.filterOptions[1]:{
+        case this.filterOptions[1]: {
           this.fetchTopUploads();
           break;
         }
@@ -43,8 +43,8 @@ export class UserUploadsComponent implements OnInit {
     this.UploadService.getTopUploads().then(uploads => this.uploads = uploads);
   }
 
-  getUploadUrl(filename:string){
-    return location.href + filename;
+  getUploadUrl(filename: string){
+    return location.origin + '/' + filename;
   }
 
 

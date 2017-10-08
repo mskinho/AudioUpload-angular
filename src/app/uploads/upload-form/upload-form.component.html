@@ -1,12 +1,19 @@
-  <h2>Select a file.</h2>
-
-<label class="mat-raised-button upload-btn" for="upload">
-            <h4>Supported file types: .mp3 / .wav / .ogg</h4>
-            <h4>&nbsp;&nbsp;Browse....&nbsp;</h4>
-</label>
-
-  <input name="myfile" type="file" id="upload" accept="audio/*" (change)="fileChangeEvent($event)" required>
-<mat-divider></mat-divider>
 <br>
-
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> <h1>{{uploadMessage}}</h1></mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  <label class="mat-raised-button upload-btn" for="upload">
+  <h4>
+  Supported file types: .mp3 / .wav / .ogg
+  <br>
+  &nbsp;&nbsp;Browse....&nbsp;</h4>
+  </label>
+  <input name="myfile" type="file" id="upload" accept="audio/*" (change)="fileChangeEvent($event)" required>
+  </mat-card-content>
+  <mat-card-actions>
 <button mat-raised-button color="primary" (click)="upload()">Upload</button>
+  </mat-card-actions>
+</mat-card>
+<br>
