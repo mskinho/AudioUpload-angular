@@ -32,9 +32,9 @@
       </button>
   </mat-card-content>
   <mat-card-actions>
-       <div class="upload-url">
-         <input type ="text" readonly value={{getUploadUrl(upload.filename)}}>
-</div>
+  <mat-form-field class="upload-url">
+    <input matInput readonly value={{getUploadUrl(upload.filename)}}>
+  </mat-form-field>
 </mat-card-actions>
   </mat-card>
 </div>
