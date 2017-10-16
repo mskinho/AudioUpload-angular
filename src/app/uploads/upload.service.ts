@@ -16,6 +16,19 @@ export class UploadService {
                .catch(this.handleError);
   }
 
+  like(data: any): Promise<any> {
+    return this.http.post('/api/like', data)
+               .toPromise()
+               .then(response => response.json())
+               .catch(this.handleError);
+  }
+  dislike(data: any): Promise<any> {
+    return this.http.post('/api/dislike', data)
+               .toPromise()
+               .then(response => response.json())
+               .catch(this.handleError);
+  }
+
   getRecentUploads(): Promise<any>{
     return this.http.get('/api/recent')
               .toPromise()
@@ -30,6 +43,8 @@ export class UploadService {
               .then(response => response.json())
               .catch(this.handleError);
   }
+
+
 
   handleError(){
 

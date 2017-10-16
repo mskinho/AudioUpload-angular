@@ -13,7 +13,8 @@ export class UploadFormComponent implements OnInit {
   constructor(private UploadService: UploadService) { }
 
   fileToUpload: File;
-  uploadMessage:string = 'Select a File';
+  uploadMessage = 'Select a File';
+
   ngOnInit() {
   }
 
@@ -23,9 +24,9 @@ export class UploadFormComponent implements OnInit {
   }
 
   upload(){
-
   const formData: any = new FormData();
   const file: File = this.fileToUpload;
+
   if (file){
   formData.append('myfile', file, file.name);
   this.UploadService.uploadFile(formData);

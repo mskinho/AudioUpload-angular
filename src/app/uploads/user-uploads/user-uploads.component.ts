@@ -47,6 +47,17 @@ export class UserUploadsComponent implements OnInit {
     return location.origin + '/' + filename;
   }
 
+  like(fileId: string){
+    const data = {fileId: fileId};
+    this.UploadService.like(data);
+  }
+
+  dislike(fileId: string){
+    const data = {fileId: fileId};
+    this.UploadService.dislike(data);
+  }
+
+
 
 
 }

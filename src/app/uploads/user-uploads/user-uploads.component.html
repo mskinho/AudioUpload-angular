@@ -1,40 +1,39 @@
-  <mat-toolbar>  {{selectedFilter}} Uploads
-  <mat-toolbar-row>
-     <span class="spacer"></span>
-          <mat-select class="filter-select" [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
-            <mat-option *ngFor="let filter of filterOptions" [value]="filter">
-              {{ filter }}
-            </mat-option>
-          </mat-select>
-
-  </mat-toolbar-row>
+<mat-toolbar>  {{selectedFilter}} Uploads
+<mat-toolbar-row>
+   <span class="spacer"></span>
+        <mat-select class="filter-select" [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
+          <mat-option *ngFor="let filter of filterOptions" [value]="filter">
+            {{filter}}
+          </mat-option>
+        </mat-select>
+</mat-toolbar-row>
 </mat-toolbar>
 <mat-divider></mat-divider>
 <div *ngIf="!uploads.length"><h3>No uploads to display.</h3></div>
 <div *ngFor="let upload of uploads">
-  <br>
-  <mat-card class="upload-card">
-    <mat-card-header>
-      <div mat-card-avatar>
-        <a mat-icon-button href="{{getUploadUrl(upload.filename)}}"  target="_blank">
-          <mat-icon>play_arrow</mat-icon>
-        </a>
-         </div>
-      <mat-card-title>{{upload.originalname}}</mat-card-title>
-       <mat-card-subtitle>Score:{{upload.score}}</mat-card-subtitle>
-    </mat-card-header>
-      <mat-card-content>
-      <button mat-icon-button>
-        <mat-icon>thumb_up</mat-icon>
-      </button>
-      <button mat-icon-button>
-        <mat-icon>thumb_down</mat-icon>
-      </button>
-  </mat-card-content>
-  <mat-card-actions>
-       <div class="upload-url">
-         <input type ="text" readonly value={{getUploadUrl(upload.filename)}}>
-</div>
+<br>
+<mat-card class="upload-card">
+  <mat-card-header>
+    <div mat-card-avatar>
+      <a mat-icon-button href="{{getUploadUrl(upload.filename)}}"  target="_blank">
+        <mat-icon>play_arrow</mat-icon>
+      </a>
+       </div>
+    <mat-card-title>{{upload.originalname}}</mat-card-title>
+     <mat-card-subtitle>Score: {{upload.score}}</mat-card-subtitle>
+  </mat-card-header>
+    <mat-card-content>
+    <button mat-icon-button (click)="like(upload._id)">
+      <mat-icon>thumb_up</mat-icon>
+    </button>
+    <button mat-icon-button (click)="dislike(upload._id)">
+      <mat-icon>thumb_down</mat-icon>
+    </button>
+</mat-card-content>
+<mat-card-actions>
+<mat-form-field class="upload-url">
+  <input matInput readonly value={{getUploadUrl(upload.filename)}}>
+</mat-form-field>
 </mat-card-actions>
-  </mat-card>
+</mat-card>
 </div>

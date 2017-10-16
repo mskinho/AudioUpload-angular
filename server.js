@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 
 const bodyParser = require('body-parser');
+app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 
 var distDir = __dirname + '/dist/';
@@ -15,7 +16,7 @@ helpers(app);
 
 
 
-var server = app.listen(process.env.PORT, function () {
+var server = app.listen(process.env.PORT || 4200, function () {
     console.log("server started")
 });
 
@@ -133,25 +134,13 @@ app.get('/api/files/:id', function (req, res) {
     });
 });
 
-app.get("/api/score/:id", function (req, res) {
-    //score by id
-    db.collection(FILE_COLLECTION).findOne({_id: new ObjectID(req.params.id)}, function (err, doc) {
-        if (err) {
-            handleError(res, err.message, "db Error: getting file by id");
-        } else {
-            res.send(''+doc.score);
-        }
-    });
-});
-
 
 app.post("/api/like/", function (req, res) {
-    var songID = req.body.SongID;
-    db.collection(FILE_COLLECTION).update({_id: new ObjectID(songID)}, {$inc: {score: 1}}, function (err, doc) {
+    var fileId = req.body.fileId;
+    db.collection(FILE_COLLECTION).update({_id: new ObjectID(fileId)}, {$inc: {score: 1}}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");
         } else {
-
             res.sendStatus(200);
         }
     });
@@ -161,12 +150,11 @@ app.post("/api/like/", function (req, res) {
 
 
 app.post("/api/dislike/", function (req, res) {
-    var songID = req.body.SongID;
-    db.collection(FILE_COLLECTION).update({_id: new ObjectID(songID)}, {$inc: {score: -1}}, function (err, doc) {
+    var fileId = req.body.fileId;
+    db.collection(FILE_COLLECTION).update({_id: new ObjectID(fileId)}, {$inc: {score: -1}}, function (err, doc) {
         if (err) {
             handleError(res, err.message, "db Error: getting file by id");
         } else {
-
             res.sendStatus(200);
         }
     });
