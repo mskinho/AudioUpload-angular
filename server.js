@@ -113,7 +113,7 @@ app.get('/api/recent', function (req, res) {
 
 app.get('/api/top', function (req, res) {
     //top 5 uploads by score
-    db.collection(FILE_COLLECTION).find({}).limit(5).sort({score: -1}).toArray(function (err, docs) {
+    db.collection(FILE_COLLECTION).find({}).sort({score: -1}).toArray(function (err, docs) {
         if (err) {
             handleError(res, err.message, "Error");
         } else {
