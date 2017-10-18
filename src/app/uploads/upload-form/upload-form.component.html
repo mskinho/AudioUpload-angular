@@ -1,7 +1,8 @@
-<br>
 <mat-card>
   <mat-card-header>
-    <mat-card-title> <h1>{{uploadMessage}}</h1></mat-card-title>
+    <mat-card-title>
+      <h2>{{uploadName}}</h2>
+    </mat-card-title>
   </mat-card-header>
   <mat-card-content>
   <label class="mat-raised-button upload-btn" for="upload">
@@ -14,6 +15,10 @@
   </mat-card-content>
   <mat-card-actions>
 <button mat-raised-button color="primary" (click)="upload()">Upload</button>
-  </mat-card-actions>
+</mat-card-actions>
+<mat-card-actions *ngIf="uploaded">
+<h4>{{uploadName}} was uploaded</h4>
+Click <a routerLink="/files">here</a> to view uploads.
+</mat-card-actions>
+
 </mat-card>
-<br>

@@ -13,15 +13,16 @@ export class UploadFormComponent implements OnInit {
   constructor(private UploadService: UploadService) { }
 
   fileToUpload: File;
-  uploadMessage = 'Select a File';
+  uploaded:boolean;
+  uploadName = 'Select a File';
 
   ngOnInit() {
   }
 
   fileChangeEvent(fileInput: any){
     this.fileToUpload = <File>fileInput.target.files[0];
-    this.uploadMessage = this.fileToUpload.name;
-  }
+    this.uploadName = this.fileToUpload.name;
+}
 
   upload(){
   const formData: any = new FormData();
@@ -30,13 +31,10 @@ export class UploadFormComponent implements OnInit {
   if (file){
   formData.append('myfile', file, file.name);
   this.UploadService.uploadFile(formData);
-  this.uploadMessage = file.name + ' was uploaded.';
+  this.uploaded = true;
   }
   else{
-  this.uploadMessage = 'No file selected.';
+  this.uploadName = 'No file selected.';
   }
-
-  }
-
-
+}
 }
