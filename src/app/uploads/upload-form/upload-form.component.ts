@@ -22,12 +22,12 @@ export class UploadFormComponent implements OnInit {
   fileChangeEvent(fileInput: any){
     this.fileToUpload = <File>fileInput.target.files[0];
     this.uploadName = this.fileToUpload.name;
+    this.uploaded = false;
 }
 
   upload(){
   const formData: any = new FormData();
   const file: File = this.fileToUpload;
-
   if (file){
   formData.append('myfile', file, file.name);
   this.UploadService.uploadFile(formData);
