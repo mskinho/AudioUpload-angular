@@ -31,8 +31,9 @@
     </button>
     </mat-card-content>
 <mat-card-actions>
-  <a href={{getUploadUrl(upload.filename)}}>
-  <pre>{{getUploadUrl(upload.filename)}}</pre></a>
+  <mat-form-field class="upload-url">
+    <input matInput value={{getUploadUrl(upload.filename)}} readonly>
+  </mat-form-field>
 </mat-card-actions>
 
 </mat-card>
