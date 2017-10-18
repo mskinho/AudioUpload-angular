@@ -13,7 +13,7 @@ export class UploadFormComponent implements OnInit {
   constructor(private UploadService: UploadService) { }
 
   fileToUpload: File;
-  uploaded:boolean;
+  uploaded: boolean;
   uploadName = 'Select a File';
 
   ngOnInit() {

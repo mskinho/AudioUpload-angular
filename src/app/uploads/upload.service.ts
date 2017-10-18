@@ -7,7 +7,7 @@ export class UploadService {
 
 
   constructor(private http: Http) {}
-  
+
   uploadFile(formData: any): Promise<any> {
     return this.http.post('/api/process_upload', formData)
                .toPromise()

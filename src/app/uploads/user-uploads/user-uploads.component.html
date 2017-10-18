@@ -1,4 +1,4 @@
-<mat-toolbar>  {{selectedFilter}} Uploads
+<mat-toolbar color="primary">  {{selectedFilter}} Uploads
 <mat-toolbar-row>
    <span class="spacer"></span>
         <mat-select class="filter-select" [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
