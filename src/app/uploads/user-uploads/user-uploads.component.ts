@@ -20,6 +20,10 @@ export class UserUploadsComponent implements OnInit {
 
   }
 
+  openAudioPlayer(){
+
+    
+  }
 
   fetchUploads(selectedFilter: string){
       switch (selectedFilter){

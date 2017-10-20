@@ -14,7 +14,7 @@ export class UploadFormComponent implements OnInit {
 
   fileToUpload: File;
   uploaded: boolean;
-  uploadName = 'Select a File';
+  uploadName: string = 'Select a File';
 
   ngOnInit() {
   }

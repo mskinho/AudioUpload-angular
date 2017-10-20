@@ -11,7 +11,7 @@ import { UploadService } from './uploads/upload.service';
 
 import {MatButtonModule, MatCheckboxModule, MatTabsModule,
 MatListModule, MatIconModule, MatProgressSpinnerModule,
-MatCardModule, MatInputModule, MatSelectModule, MatToolbarModule} from '@angular/material';
+MatCardModule, MatInputModule, MatSelectModule, MatToolbarModule,MatButtonToggleModule} from '@angular/material';
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 
 
@@ -39,6 +39,7 @@ const appRoutes: Routes = [
     MatSelectModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
+    MatButtonToggleModule,
     BrowserModule,
     HttpModule,
     FormsModule,
