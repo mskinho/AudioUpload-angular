@@ -2,7 +2,7 @@
 <br>
   <mat-card>
   <mat-card-content>
-  <label class="mat-raised-button upload-btn" for="upload">
+  <label class="mat-raised-button mat-primary upload-btn" for="upload">
     <h4>Supported file types: .mp3 / .wav / .ogg</h4><br><h2>&nbsp;&nbsp;Browse....&nbsp;</h2>
   </label>
   <input name="myfile" type="file" id="upload" accept="audio/*" (change)="fileChangeEvent($event)" required>
@@ -11,7 +11,6 @@
 <button mat-raised-button color="primary" (click)="upload()">Upload</button>
 </mat-card-actions>
 <mat-card-actions *ngIf="uploaded">
-<h3>{{uploadName}} was uploaded. Click <a routerLink="/files">here</a> to view uploads.</h3>
+{{uploadName}} was uploaded. Click <a routerLink="/files">here</a> to view uploads.
 </mat-card-actions>
-
 </mat-card>
