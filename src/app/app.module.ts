@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HttpModule }    from '@angular/http';
+import { HttpModule } from '@angular/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -9,9 +9,10 @@ import { UserUploadsComponent } from './uploads/user-uploads/user-uploads.compon
 import { UploadFormComponent } from './uploads/upload-form/upload-form.component';
 import { UploadService } from './uploads/upload.service';
 
-import {MatButtonModule, MatCheckboxModule, MatTabsModule,
-MatListModule, MatIconModule, MatProgressSpinnerModule,
-MatCardModule, MatInputModule, MatSelectModule, MatToolbarModule,MatButtonToggleModule} from '@angular/material';
+import {MatButtonModule, MatCheckboxModule, MatTabsModule, MatListModule, MatIconModule,
+MatProgressSpinnerModule, MatCardModule, MatInputModule, MatSelectModule, MatToolbarModule,
+MatButtonToggleModule} from '@angular/material';
+
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 
 

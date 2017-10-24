@@ -15,18 +15,18 @@ export class UserUploadsComponent implements OnInit {
 
  constructor(private UploadService: UploadService) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.fetchRecentUploads();
 
   }
 
-  openAudioPlayer(){
+  openAudioPlayer() {
 
-    
+
   }
 
-  fetchUploads(selectedFilter: string){
-      switch (selectedFilter){
+  fetchUploads(selectedFilter: string) {
+      switch (selectedFilter) {
         case this.filterOptions[0]: {
           this.fetchRecentUploads();
           break;
@@ -39,24 +39,24 @@ export class UserUploadsComponent implements OnInit {
       }
   }
 
-  fetchRecentUploads(){
+  fetchRecentUploads() {
     this.UploadService.getRecentUploads().then(uploads => this.uploads = uploads);
   }
 
-  fetchTopUploads(){
+  fetchTopUploads() {
     this.UploadService.getTopUploads().then(uploads => this.uploads = uploads);
   }
 
-  getUploadUrl(filename: string){
+  getUploadUrl(filename: string) {
     return location.origin + '/' + filename;
   }
 
-  like(fileId: string){
+  like(fileId: string) {
     const data = {fileId: fileId};
     this.UploadService.like(data);
   }
 
-  dislike(fileId: string){
+  dislike(fileId: string) {
     const data = {fileId: fileId};
     this.UploadService.dislike(data);
   }

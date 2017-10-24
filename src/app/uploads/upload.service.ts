@@ -28,7 +28,7 @@ export class UploadService {
                .catch(this.handleError);
   }
 
-  getRecentUploads(): Promise<any>{
+  getRecentUploads(): Promise<any> {
     return this.http.get('/api/recent')
               .toPromise()
               .then(response => response.json())
@@ -36,7 +36,7 @@ export class UploadService {
   }
 
 
-  getTopUploads(): Promise<any>{
+  getTopUploads(): Promise<any> {
     return this.http.get('/api/top')
               .toPromise()
               .then(response => response.json())
@@ -45,7 +45,7 @@ export class UploadService {
 
 
 
-  handleError(){
+  handleError() {
 
   }
 
