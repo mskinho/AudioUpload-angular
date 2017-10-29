@@ -1,53 +1,35 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { HttpClient, HttpRequest, HttpEventType, HttpResponse} from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class UploadService {
 
 
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
+
 
   uploadFile(formData: any): Promise<any> {
-    return this.http.post('/api/process_upload', formData)
-               .toPromise()
-               .then(response => response.json())
-               .catch(this.handleError);
+    return this.http.post('/api/process_upload', formData).toPromise();
   }
 
   like(data: any): Promise<any> {
-    return this.http.post('/api/like', data)
-               .toPromise()
-               .then(response => response.json())
-               .catch(this.handleError);
+    return this.http.post('/api/like', data).toPromise();
   }
+
   dislike(data: any): Promise<any> {
-    return this.http.post('/api/dislike', data)
-               .toPromise()
-               .then(response => response.json())
-               .catch(this.handleError);
+    return this.http.post('/api/dislike', data).toPromise();
   }
 
   getRecentUploads(): Promise<any> {
-    return this.http.get('/api/recent')
-              .toPromise()
-              .then(response => response.json())
-              .catch(this.handleError);
+    return this.http.get('/api/recent').toPromise();
   }
 
 
   getTopUploads(): Promise<any> {
-    return this.http.get('/api/top')
-              .toPromise()
-              .then(response => response.json())
-              .catch(this.handleError);
+    return this.http.get('/api/top').toPromise();
   }
 
-
-
-  handleError() {
-
-  }
 
 
 
