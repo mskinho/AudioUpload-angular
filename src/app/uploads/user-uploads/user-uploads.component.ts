@@ -12,7 +12,6 @@ export class UserUploadsComponent implements OnInit {
  uploads: any = [];
  filterOptions = ['Recent', 'Top Rated'];
  selectedFilter = this.filterOptions[0];
-
  constructor(private UploadService: UploadService) { }
 
   ngOnInit() {
@@ -54,12 +53,16 @@ export class UserUploadsComponent implements OnInit {
   like(fileId: string) {
     const data = {fileId: fileId};
     this.UploadService.like(data);
-  }
+    }
+
+
 
   dislike(fileId: string) {
     const data = {fileId: fileId};
     this.UploadService.dislike(data);
   }
+
+
 
 
 

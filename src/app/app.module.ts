@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
@@ -11,7 +11,7 @@ import { UploadService } from './uploads/upload.service';
 
 import {MatButtonModule, MatCheckboxModule, MatTabsModule, MatListModule, MatIconModule,
 MatProgressSpinnerModule, MatCardModule, MatInputModule, MatSelectModule, MatToolbarModule,
-MatButtonToggleModule} from '@angular/material';
+MatButtonToggleModule, MatDialogModule} from '@angular/material';
 
 import { AudioPlayerComponent } from './audio-player/audio-player.component';
 
@@ -41,8 +41,9 @@ const appRoutes: Routes = [
     MatProgressSpinnerModule,
     MatToolbarModule,
     MatButtonToggleModule,
+    MatDialogModule,
     BrowserModule,
-    HttpModule,
+    HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule

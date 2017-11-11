@@ -23,7 +23,9 @@
         "theme.scss",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/howler.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

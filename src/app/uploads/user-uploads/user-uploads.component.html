@@ -1,29 +1,25 @@
-<mat-toolbar color="primary">  {{selectedFilter}} Uploads
-<mat-toolbar-row>
-   <span class="spacer"></span>
+<mat-toolbar color="primary">
         <mat-select class="filter-select" [(ngModel)]="selectedFilter" (change)="fetchUploads(selectedFilter)">
           <mat-option *ngFor="let filter of filterOptions" [value]="filter">
             {{filter}}
           </mat-option>
         </mat-select>
-</mat-toolbar-row>
 </mat-toolbar>
 <br>
+
 <div *ngIf="!uploads.length"><h3>No uploads to display.</h3></div>
 <div *ngFor="let upload of uploads">
 <br>
-<mat-card class="upload-card">
-  <mat-card-header>
-    <div mat-card-avatar>
-      <a mat-icon-button href="{{getUploadUrl(upload.filename)}}"  target="_blank">
-        <mat-icon>play_arrow</mat-icon>
-      </a>
-       </div>
-    <mat-card-title>{{upload.originalname}}</mat-card-title>
-     <mat-card-subtitle>Score: {{upload.score}}</mat-card-subtitle>
-  </mat-card-header>
+<mat-card>
+
+<mat-card-title>
+    <h4>{{upload.originalname}}</h4>
+<app-audio-player [audioSrc]="upload.filename"></app-audio-player>
+</mat-card-title>
+
     <mat-card-content>
-      <mat-button-toggle-group #group="matButtonToggleGroup" (change)="fetchUploads(selectedFilter)">
+    score: {{upload.score}}<br>
+      <mat-button-toggle-group #group="matButtonToggleGroup">
         <mat-button-toggle value="liked" (click)="like(upload._id)">
           <mat-icon>arrow_upward</mat-icon>
         </mat-button-toggle>
@@ -31,10 +27,11 @@
           <mat-icon>arrow_downward</mat-icon>
         </mat-button-toggle>
       </mat-button-toggle-group>
+
     </mat-card-content>
 <mat-card-actions>
   <mat-form-field class="upload-url">
-    <input style="cursor:pointer;" (click)='$event.target.select()'type="url" matInput value={{getUploadUrl(upload.filename)}}>
+    <input style="cursor:pointer;" (click)='$event.target.select()' matInput value="{{getUploadUrl(upload.filename)}}">
   </mat-form-field>
 </mat-card-actions>
 

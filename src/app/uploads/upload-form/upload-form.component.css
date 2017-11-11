@@ -6,6 +6,9 @@
   width: 100%;
 }
 
+.toolbar-txt{
+  color:black;
+}
 
 input[type="file"] {
     display: none;
