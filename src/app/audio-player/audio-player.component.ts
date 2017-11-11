@@ -16,9 +16,11 @@ export class AudioPlayerComponent implements OnInit, OnDestroy{
 
 
   ngOnInit() {
+    if(this.audio){
+      this.audio.stop();
+    }
     this.audio = new Howl({
-      src: [this.audioSrc], // load audio source from input
-      html5: true
+      src: [this.audioSrc] // load audio source from input
     });
   }
 
@@ -33,7 +35,7 @@ export class AudioPlayerComponent implements OnInit, OnDestroy{
 
     play() {
      if (!this.audio.playing()) {
-     this.audio.stop().play();
+     this.audio.play();
      this.playerStateIcon = 'pause';
      }
      else{
