@@ -1,4 +1,4 @@
-<mat-toolbar color="primary" class="toolbar-txt">{{uploadName}}</mat-toolbar>
+<mat-toolbar color="primary" class="toolbar-txt">{{uploadInfo}}</mat-toolbar>
 <br>
   <mat-card>
   <mat-card-content>
@@ -11,6 +11,6 @@
 <button mat-raised-button color="primary" (click)="upload()">Upload</button>
 </mat-card-actions>
 <mat-card-actions *ngIf="uploaded">
-{{uploadName}} was uploaded. Click <a routerLink="/files">here</a> to view uploads.
+Uploading {{uploadInfo}}. Click <a routerLink="/files">here</a> to view uploads.
 </mat-card-actions>
 </mat-card>

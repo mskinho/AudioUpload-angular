@@ -14,7 +14,7 @@ export class UploadFormComponent implements OnInit {
 
   fileToUpload: File;
   uploaded: boolean;
-  uploadName = 'Select a File';
+  uploadInfo = 'Select an Audio File';
 
   ngOnInit() {
 
@@ -22,7 +22,7 @@ export class UploadFormComponent implements OnInit {
 
   fileChangeEvent(fileInput: any) {
     this.fileToUpload = <File>fileInput.target.files[0];
-    this.uploadName = this.fileToUpload.name;
+    this.uploadInfo = this.fileToUpload.name;
     this.uploaded = false;
   }
 
@@ -30,14 +30,24 @@ export class UploadFormComponent implements OnInit {
   const formData: any = new FormData();
   const file: File = this.fileToUpload;
 
+  //file selected
   if (file) {
+
+  // upload valid audio file
+  if (file.name.match(/\.(mp3|wav|ogg)$/)) {
   formData.append('myfile', file, file.name);
   this.UploadService.uploadFile(formData);
   this.uploaded = true;
   }
 
+  else{
+    this.uploadInfo = 'Select a supported audio file type.';
+  }
+
+  }
+
   else {
-    this.uploadName = 'No file selected.';
+    this.uploadInfo = 'No file selected.';
   }
 
 }
